@@ -83,7 +83,12 @@ def main():
         label = f"{name} ({d:.2f})" if d > 0 else f"requete"
         cv2.putText(grid_img, label, (x+5, y+25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)
 
+    # Afficher la grille
     cv2.imshow("Grille des images similaires (Formes)", grid_img)
+    # Enregistrer le résultat en tant que PNG
+    out_name = f"test_{query_img.replace('.gif','')}" + ".png"
+    cv2.imwrite(out_name, grid_img)
+    print(f"Image enregistrée sous : {out_name}")
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
